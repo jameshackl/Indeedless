@@ -30,3 +30,4 @@ Clear List will clear the hidden posts list. All of the posts selected to be hid
 - move 'Clear List' button to settings or options.
 - make an 'Undo' button.
 - provide additional information about posts in the clearing and restoring options.
+- cross domain storage. filtering is applied on a per domain basis. 
