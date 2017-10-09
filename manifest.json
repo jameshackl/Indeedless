@@ -7,7 +7,7 @@
 
     "content_scripts":[
         {
-            "matches": ["https://ca.indeed.com/*"],
+            "matches": ["https://ca.indeed.com/*","https://www.indeed.ca/*"],
             "js": ["moreControls.js"],
             "css": ["customStyles.css"]
         }
