@@ -21,7 +21,7 @@ function hidePostingElement(post){
 }
 
 function clearHiddenList(){
-    localStorage.clear();
+    localStorage.removeItem('hiddenPostings');
 }
 
 var postings = Array.from(document.querySelectorAll('.row,.result'));
