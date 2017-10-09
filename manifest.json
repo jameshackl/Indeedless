@@ -1,0 +1,15 @@
+{
+    "manifest_version": 2,
+    "name": "Indeedless",
+    "version": "0.0.1",
+
+    "description": "Add some controls to hide postings.",
+
+    "content_scripts":[
+        {
+            "matches": ["https://ca.indeed.com/*"],
+            "js": ["moreControls.js"],
+            "css": ["customStyles.css"]
+        }
+    ]
+}
