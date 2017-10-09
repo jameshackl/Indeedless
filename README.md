@@ -15,6 +15,8 @@ Select 'Load unpacked extension...'
 
 Navigate to repo folder then select 'Ok' to install the extension.
 
+(To update, sync repo folder then select 'Reload' in the extensions manager)
+
 ## Usage
 
 After the extension is installed two buttons will be added to the job postings on Indeed: Hide Post, and Clear List.
