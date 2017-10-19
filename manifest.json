@@ -1,14 +1,20 @@
 {
     "manifest_version": 2,
     "name": "Indeedless",
-    "version": "0.0.1",
+    "version": "0.0.2",
 
-    "description": "Add some controls to hide postings.",
+    "description": "Add control to hide postings.",
+    "permissions":[
+        "storage"
+    ],
+    "options_page":"settings.html",
+
+    "browser_action":{"default_popup":"settings.html"},
 
     "content_scripts":[
         {
             "matches": ["https://ca.indeed.com/*","https://www.indeed.ca/*"],
-            "js": ["moreControls.js"],
+            "js": ["init.js","moreControls.js"],
             "css": ["customStyles.css"]
         }
     ]
