@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Indeedless: Settings</title>
+    <script src="init.js"></script>
+    
+</head>
+<style>
+    body {
+    min-width:250px;
+}
+</style>
+<body>
+
+    <h1>Indeedless: Settings</h1>
+    <h2>Options</h2>
+    <input type="checkbox" id="archived"> Hide archived posts<br>
+    <input type="checkbox" id="saved"> Hide saved posts<br>
+    <input type="checkbox" id="applied"> Hide 'applied to' posts<br>
+    <input type="checkbox" id="visited"> Hide visited posts<br>
+
+    <h2>Operations</h2>
+    <button id="clearHidden">Clear</button> Clear Hidden Posts Cache
+    <hr>
+    <button id="restoreDefaults">Restore</button> Restore Default Settings
+
+    <script src="settings.js"></script>
+</body>
+</html>
