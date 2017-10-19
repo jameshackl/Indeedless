@@ -1,14 +1,13 @@
 function clearHiddenList(){
     chrome.storage.local.remove('hiddenPostings');
     chrome.storage.local.set({'hiddenPostings':[]});
-    alert('Cleared List'); //TODO: confirmation dialog
+    //TODO:confirmation dialog
 }
 
 function setFilter(filterType){
     var x = {};
     x[filterType] = document.getElementById(filterType).checked;
     chrome.storage.local.set(x);
-    alert(filterType);
 }
 
 var filters = [
@@ -27,7 +26,6 @@ filters.forEach(function(filterType) {
 
 chrome.storage.local.get(function(settings){
     filters.forEach(function(filterType) {
-        //alert(settings[filterType]);
         document.getElementById(filterType).checked = settings[filterType];
     }, this);
 }); 
