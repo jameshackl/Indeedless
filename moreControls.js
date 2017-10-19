@@ -1,9 +1,12 @@
 function hidePosting(){
     //add hidden post to storage
-    var posts = JSON.parse(localStorage.getItem('hiddenPostings'));
+    var hiddenPosts = {};
     var posting = document.activeElement.getAttribute("id");
-    posts.push(posting);
-    localStorage.setItem('hiddenPostings',JSON.stringify(posts));
+    chrome.storage.local.get('hiddenPostings', function(posts){
+        posts['hiddenPostings'].push(posting);
+        hiddenPosts['hiddenPostings'] = posts;
+    });
+    chrome.storage.local.set(hiddenPosts);
 
     //remove from page
     hidePostingElement(posting);
@@ -17,27 +20,46 @@ function hidePostingElement(post){
     }      
 }
 
+//TODO: Remove button from posts
 function clearHiddenList(){
     localStorage.removeItem('hiddenPostings');
 }
 
-var postings = Array.from(document.querySelectorAll('.row,.result'));
+//only apply wanted filters
+var filters = [];
+chrome.storage.local.get(null, function(settings){
+    for(setting in settings){
+        if(settings[setting] == true){
+            filters.push(setting);
+        }
+    }
+});
 
-if(localStorage.getItem('hiddenPostings')){
-    //remove hidden postings
-    var posts = JSON.parse(localStorage.getItem('hiddenPostings'))
+
+//after page loads...
+//remove hidden postings
+chrome.storage.local.get('hiddenPostings', function(posts){
     for (var index = 0; index < posts.length; index++) {
         hidePostingElement(posts[index]);  
-    }
-}
-else{
-    //initialize storage
-    localStorage.setItem('hiddenPostings','[]');
-}
+}});
+
+
+var postings = Array.from(document.querySelectorAll('.row,.result'));
 
 for(var i = 0; i < postings.length; i++)    {
     //postings[i].classList.add("highlight_posting");
     var currentPosting = postings[i].getAttribute("data-jk");
+
+    //apply filters from settings
+    if(postings[i].innerHTML != null){
+        filters.forEach(function(element) {
+            if(postings[i].querySelector('.myjobs-serp-link').innerHTML.toUpperCase() == element.toUpperCase()){
+                hidePostingElement(currentPosting);
+            }
+        }, this);
+    }
+
+    //inject custom elements    
     var pElement = document.createElement("p");
         pElement.appendChild(document.createTextNode("Indeedless: "));
     var hideButton = document.createElement("button");
@@ -51,10 +73,6 @@ for(var i = 0; i < postings.length; i++)    {
     pElement.insertAdjacentElement("beforeend",hideButton);
     pElement.insertAdjacentElement("beforeend",clearButton);
     postings[i].insertAdjacentElement("beforeend",pElement);
-
-    //var insertString = '<p>Indeedless: <button>hello</button></p>';
-    // var insertString = '<p>Indeedless: <a href="javascript:hidePosting(' + currentPosting +')">Hide Post</a> <a href="javascript:clearHiddenList()">Clear List</a></p>';
-    // postings[i].insertAdjacentHTML("beforeend",insertString);
 }
 
 
