@@ -35,7 +35,8 @@ To clear the cache of hidden posts, select the 'Clear' button.
 
 - make an 'Undo' button.
 - provide additional information about posts in the clearing and restoring options.
-- make hidden posts persistent across any computer you log into with a google account
+- make hidden posts persistent across any computer you log into with a google account?
+- prefetch multiple plages
 
 ## ChangeLog
 v0.0.2 
