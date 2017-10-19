@@ -1,5 +1,0 @@
-hiddenPostings - an array of posts to hide
-archived - setting to filter archived posts
-saved - setting to filter saved posts
-applied - setting to filter applied posts
-visited - setting to filter visited posts
