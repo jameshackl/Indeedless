@@ -1,7 +1,7 @@
 var filterDefaults = [
-    {'archived': true},
-    {'saved': true},
-    {'applied':true},
+    {'archived': false},
+    {'saved': false},
+    {'applied':false},
     {'visited':false}
 ];
 
