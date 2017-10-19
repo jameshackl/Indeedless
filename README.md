@@ -19,15 +19,26 @@ Navigate to repo folder then select 'Ok' to install the extension.
 
 ## Usage
 
-After the extension is installed two buttons will be added to the job postings on Indeed: Hide Post, and Clear List.
+After the extension is installed a button will be added to the job postings on Indeed: Hide Post.
 
 Hide Post will hide the post immediately and for anysubsequent visits.
 
-Clear List will clear the hidden posts list. All of the posts selected to be hidden will now appear again. You will need to refresh the page to see the changes.
+## Options
+
+Clicking the Indeedless icon drops down the settings.
+
+Filters for archived, saved, applied to, and visited posts are available.
+
+To clear the cache of hidden posts, select the 'Clear' button.
 
 ## TODO
 
-- move 'Clear List' button to settings or options.
 - make an 'Undo' button.
 - provide additional information about posts in the clearing and restoring options.
-- cross domain storage. filtering is applied on a per domain basis. 
+- make hidden posts persistent across any computer you log into with a google account?
+- prefetch multiple plages
+
+## ChangeLog
+v0.0.2 
+- moved 'Clear List' button to settings. 
+- cross domain storage. filtering is applied accross all domains.(currently "https://ca.indeed.com/*","https://www.indeed.ca/*")
