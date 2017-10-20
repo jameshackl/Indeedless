@@ -14,8 +14,7 @@
     "content_scripts":[
         {
             "matches": ["https://ca.indeed.com/*","https://www.indeed.ca/*"],
-            "js": ["init.js","moreControls.js"],
-            "css": ["customStyles.css"]
+            "js": ["init.js","moreControls.js"]
         }
     ]
 }
